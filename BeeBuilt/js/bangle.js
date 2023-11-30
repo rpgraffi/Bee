@@ -67,7 +67,7 @@ function onLine(line) {
         };    
       }
       console.log(accel.x +" "+ accel.y + " " + accel.z);
-      gameInstance.SendMessage('Bean', 'MoveBean', JSON.stringify({ x: accel.x, y: accel.y, z: accel.z }));
+      gameInstance.SendMessage('MinecraftBee', 'MoveBee', JSON.stringify({ x: -accel.y, y: accel.x, z: accel.z }));
 
 }
 // Set the position of each bar
