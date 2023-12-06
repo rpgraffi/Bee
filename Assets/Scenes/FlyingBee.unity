@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.6659461, g: 0.88264465, b: 0.88569534, a: 1}
+  m_IndirectSpecularColor: {r: 0.66594875, g: 0.88264585, b: 0.88569534, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -149,15 +149,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c1bb58059e16a46929eda5f7778999d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.58663344
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c1bb58059e16a46929eda5f7778999d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c1bb58059e16a46929eda5f7778999d5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.21890864
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c1bb58059e16a46929eda5f7778999d5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -429,8 +429,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841964554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4, y: -25.8, z: -0.020009995}
-  m_LocalScale: {x: 50, y: 50, z: 2}
+  m_LocalPosition: {x: 0, y: -27, z: 0}
+  m_LocalScale: {x: 50, y: 50, z: 20.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -521,7 +521,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.44, y: 3, z: -12.6}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -594,4 +594,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236e2c15f9570467089ef0ac62953ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useMouse: 1
+  useMouse: 0
