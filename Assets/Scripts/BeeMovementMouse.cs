@@ -18,8 +18,6 @@ public class BeeMovementMouse : MonoBehaviour
 
         // Convert the screen position to world position
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
-        Debug.Log(worldPosition.x + " " + worldPosition.y);
-        Debug.Log(mousePosition.x + " " + mousePosition.y);
 
 
 
