@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class BeeScript : MonoBehaviour
 {
-    private void Start() {
-        //gameObject.name = "Buzzy Bee"; dont use will make watch movement broke
-       
+    public LogicScript logic;
+    public bool isAlive = true;
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        logic.gameOver();
+        isAlive = false;
+        rb.useGravity = true;
+
     }
 }

@@ -16,9 +16,13 @@ public class PipeMiddleScript : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider collision) {
+        if (collision.gameObject.layer == 3)
+        {
         Debug.Log("Collission");
-        logic.addScore();
+        logic.addScore(1);
+            
+        }
     }
 
     
