@@ -9,11 +9,14 @@ public class PipeSpawnerScript : MonoBehaviour
     public GameObject pipe;
     public float spawnrate = 1;
     public float pipeOffset = 3;
+    public float speed = 3;
     private float timer = 0;
+    PipeMoveScript movementScript;
     void Start()
-    {
-            spawnPipe();
-
+    {   
+        movementScript = pipe.GetComponent<PipeMoveScript>();
+        movementScript.moveSpeed = speed;
+        spawnPipe();
     }
 
     // Update is called once per frame
