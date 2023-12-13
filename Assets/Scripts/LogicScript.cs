@@ -23,6 +23,6 @@ public class LogicScript : MonoBehaviour
     }
     public void gameOver(){
         gameOverScreen.SetActive(true);
-        // Using Unity's Application.ExternalCall
+        Application.ExternalCall("showEndScreenInWebApp");
     }
 }
