@@ -1,5 +1,7 @@
 // Code to upload to Bangle.js
 var BANGLE_CODE = `
+Bangle.setLCDPower(1);
+
 Bangle.on('accel',function(a) {
   var d = [
     "A",
@@ -10,25 +12,45 @@ Bangle.on('accel',function(a) {
   Bluetooth.println(d.join(","));
 });
 
-Bangle.setHRMPower(1);
+// Bangle.setHRMPower(1);
 
-function showHeartRateOnScreen(hrm) {
-  var displayString = "Heart Rate: " + hrm.bpm + " BPM";
+// function showHeartRateOnScreen(hrm) {
+//   var displayString = "Heart Rate: " + hrm.bpm + " BPM";
 
-  E.showMenu({
-    '': { 'title': displayString }
-  });
+//   E.showMenu({
+//     '': { 'title': displayString }
+//   });
 
-  var bluetoothData = ["H", hrm.bpm, hrm.confidence];
-  Bluetooth.println(bluetoothData.join(","));
+//   var bluetoothData = ["H", hrm.bpm, hrm.confidence];
+//   Bluetooth.println(bluetoothData.join(","));
 
-  if (hrm.bpm > 80) {
-    Bangle.buzz();
-  }
+//   if (hrm.bpm > 80) {
+//     Bangle.buzz();
+//   }
+// }
+
+// Bangle.on('HRM', showHeartRateOnScreen);
+
+function incrementCounter() {
+  // Assuming you have a variable 'counter' that you want to increment
+  counter = (typeof counter !== 'undefined' ? counter : 0) + 1;
+  // Code to update the display on the Bangle.js with the new counter value
+  g.clear();
+  g.setFont("6x8", 2);
+  g.drawString("Counter: " + counter, 20, 20);
+  g.flip(); // For Bangle.js 1, for Bangle.js 2, this is not needed
 }
-
-Bangle.on('HRM', showHeartRateOnScreen);
 `;
+
+function incrementCounter() {
+  // Assuming you have a variable 'counter' that you want to increment
+  counter = (typeof counter !== 'undefined' ? counter : 0) + 1;
+  // Code to update the display on the Bangle.js with the new counter value
+  g.clear();
+  g.setFont("6x8", 2);
+  g.drawString("Counter: " + counter, 20, 20);
+  g.flip(); // For Bangle.js 1
+}
 
 // When we click the connect button...
 var connection;
@@ -102,3 +124,26 @@ function setBarPos(id,d) {
     s.width=(-d)+"px";
   }
 }
+
+
+
+document.getElementById("btnIncrement").addEventListener("click", function() {
+  if (!connection) {
+    alert("Not connected to a Bangle.js!");
+    return;
+  }
+
+  // Call the function on the Bangle.js
+  connection.write("incrementCounter();\n", function() {
+    console.log("Counter incremented on Bangle.js");
+  });
+});
+
+
+function incrementCounterInWebApp() {
+  // Trigger the function to increment the counter on Bangle.js
+  if (connection) {
+      connection.write("incrementCounter();\n");
+  }
+}
+

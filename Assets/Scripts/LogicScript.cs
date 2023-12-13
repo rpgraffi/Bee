@@ -15,6 +15,7 @@ public class LogicScript : MonoBehaviour
     public void addScore(int scoreToAdd) {
         playerScore += scoreToAdd;
         scoreText.text = playerScore.ToString();
+        Application.ExternalCall("incrementCounterInWebApp");
     } 
 
     public void restartGame(){
@@ -22,5 +23,6 @@ public class LogicScript : MonoBehaviour
     }
     public void gameOver(){
         gameOverScreen.SetActive(true);
+        // Using Unity's Application.ExternalCall
     }
 }
