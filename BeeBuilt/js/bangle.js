@@ -8,7 +8,26 @@ Bangle.on('accel',function(a) {
     Math.round(a.z*100)
     ];
   Bluetooth.println(d.join(","));
-})
+});
+
+Bangle.setHRMPower(1);
+
+function showHeartRateOnScreen(hrm) {
+  var displayString = "Heart Rate: " + hrm.bpm + " BPM";
+
+  E.showMenu({
+    '': { 'title': displayString }
+  });
+
+  var bluetoothData = ["H", hrm.bpm, hrm.confidence];
+  Bluetooth.println(bluetoothData.join(","));
+
+  if (hrm.bpm > 80) {
+    Bangle.buzz();
+  }
+}
+
+Bangle.on('HRM', showHeartRateOnScreen);
 `;
 
 // When we click the connect button...
