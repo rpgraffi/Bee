@@ -157,11 +157,24 @@ document.getElementById("btnConnect").addEventListener("click", function () {
 // from the accelerometer, update it
 function onLine(line) {
   console.log("RECEIVED:" + line);
+  
 
+  var trimmedLine = line.trim();
+
+  if (trimmedLine === "restart") {
+    console.log("Restart command received");
+    gameInstance.SendMessage(
+      "LogicManager", // Selects GameObject
+      "restartGame",  // Calls function on game object
+    );
+    return;
+  }
+
+  var accel;
   var d = line.split(",");
   if (d.length == 4 && d[0] == "A") {
     // we have an accelerometer reading
-    var accel = {
+    accel = {
       x: 0,
       y: 0,
       z: 0,
@@ -175,16 +188,13 @@ function onLine(line) {
 
   if (accel) {
     gameInstance.SendMessage(
-      "MinecraftBee",
-      "MoveBee",
+      "MinecraftBee", // Selects GameObject
+      "MoveBee",  // Calls function on game object
       JSON.stringify({ x: -accel.y, y: accel.x, z: accel.z })
     );
   }
-
-  if (line == "restart") {
-    console.log("nice");
-  }
 }
+
 // Set the position of each bar
 function setBarPos(id, d) {
   var s = document.getElementById(id).style;
