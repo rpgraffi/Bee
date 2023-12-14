@@ -5,25 +5,26 @@ using UnityEngine;
 public class PipeMiddleScript : MonoBehaviour
 {
     public LogicScript logic;
+    //public GameObject bee;
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         Debug.Log(logic);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
-    private void OnTriggerEnter(Collider collision) {
+    private void OnTriggerEnter(Collider collision)
+    {
         if (collision.gameObject.layer == 3)
         {
-        Debug.Log("Collission");
-        logic.addScore(1);
-            
+            Debug.Log("Collission");
+            logic.addScore(1);
+
         }
     }
 
-    
+
 }

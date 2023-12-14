@@ -1618,7 +1618,7 @@ GameObject:
   - component: {fileID: 1987006324}
   - component: {fileID: 1987006323}
   m_Layer: 0
-  m_Name: Logic Manager
+  m_Name: LogicManager
   m_TagString: Logic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1639,6 +1639,7 @@ MonoBehaviour:
   playerScore: 0
   scoreText: {fileID: 62867218}
   gameOverScreen: {fileID: 326073311}
+  beeObject: {fileID: 2072738716}
 --- !u!4 &1987006324
 Transform:
   m_ObjectHideFlags: 0

@@ -1,5 +1,3 @@
-Bangle.setLCDPower(1);
-
 var counter = 0;
 var currentState = "playing";
 
@@ -47,17 +45,22 @@ function showEndScreen(){
     g.setColor(0.3, 0.3, 1);
     drawLeftAlignedString("Try again ->", 30);
     g.setColor(1, 1, 1);
-    drawCenteredString(counter, 120);
+    drawCounter(counter);
     g.setColor(0.3, 0.3, 0.3);
     drawLeftAlignedString("Does nothing ->", 210);
     g.setColor(1, 1, 1);
     g.flip();
+    Bangle.setLCDPower(1);
 }
 
 
+
 function restartGame(){
+    changeState("playing")
+    counter = 0;
+    g.clear();
+    drawCounter(counter)
     Bluetooth.println("restart");
-    // TODO: Restart unity scene
 }
 
 
@@ -83,12 +86,20 @@ function restartGame(){
 function incrementCounter() {
     if (currentState = "playing") {
         counter = (typeof counter !== 'undefined' ? counter : 0) + 1;
-        // Code to update the display on the Bangle.js with the new counter value
         g.clear();
-        g.setFont("6x8", 2);
-        g.drawString("Counter: " + counter, 20, 20);
-        g.flip(); // For Bangle.js 1, for Bangle.js 2, this is not needed
+        drawCounter(counter);
     }
+}
+
+function drawCounter(score){
+    g.setFontAlign(0,0); // center font
+    g.setFont("Vector",80); // vector font, 80px  
+    // draw the current counter value
+    g.drawString(score,120,120);
+    
+    // optional - this keeps the watch LCD lit up
+    Bangle.setLCDPower(1);
+
 }
 
 
