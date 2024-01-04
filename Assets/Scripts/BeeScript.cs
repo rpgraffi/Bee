@@ -21,4 +21,5 @@ public class BeeScript : MonoBehaviour
         rb.useGravity = true;
 
     }
+
 }

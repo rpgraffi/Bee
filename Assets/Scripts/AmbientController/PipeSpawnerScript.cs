@@ -11,9 +11,10 @@ public class PipeSpawnerScript : MonoBehaviour
     public float pipeOffset = 3;
     public float speed = 3;
     private float timer = 0;
+
     PipeMoveScript movementScript;
     void Start()
-    {   
+    {
         movementScript = pipe.GetComponent<PipeMoveScript>();
         movementScript.moveSpeed = speed;
         spawnPipe();
@@ -33,9 +34,10 @@ public class PipeSpawnerScript : MonoBehaviour
         }
 
     }
-        void spawnPipe () {
-            float highestPoint = transform.position.y + pipeOffset;
-            float lowestPoint = transform.position.y - pipeOffset;
-            Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), transform.position.z), transform.rotation);
-        }
+    void spawnPipe()
+    {
+        float highestPoint = transform.position.y + pipeOffset;
+        float lowestPoint = transform.position.y - pipeOffset;
+        Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), transform.position.z), transform.rotation);
+    }
 }
