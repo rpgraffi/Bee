@@ -8,6 +8,25 @@ Bangle.on("accel", function (a) {
   Bluetooth.println(d.join(","));
 });
 
+
+Bangle.setHRMPower(1);
+
+function showHeartRateOnScreen(hrm) {
+  var displayString = "Heart Rate: " + hrm.bpm + " BPM";
+
+
+  var bluetoothData = ["H", hrm.bpm, hrm.confidence];
+  Bluetooth.println(bluetoothData.join(","));
+
+  if (hrm.bpm > 80) {
+    Bangle.buzz();
+  }
+}
+
+Bangle.on('HRM', showHeartRateOnScreen);
+
+
+
 function changeState(newState) {
   clearWatch(); // This removes all watches.
 
@@ -66,25 +85,6 @@ function resumeGame() {
   changeState("playing");
   Bluetooth.println("resume");
 }
-
-// Bangle.setHRMPower(1);
-
-// function showHeartRateOnScreen(hrm) {
-//   var displayString = "Heart Rate: " + hrm.bpm + " BPM";
-
-//   E.showMenu({
-//     '': { 'title': displayString }
-//   });
-
-//   var bluetoothData = ["H", hrm.bpm, hrm.confidence];
-//   Bluetooth.println(bluetoothData.join(","));
-
-//   if (hrm.bpm > 80) {
-//     Bangle.buzz();
-//   }
-// }
-
-// Bangle.on('HRM', showHeartRateOnScreen);
 
 function incrementCounter() {
   if ((currentState = "playing")) {
