@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ScrollGround : MonoBehaviour
 {
-    public float scrollSpeed = 5f;
+    public float scrollSpeed = 60f;
 
 
     void Update()
