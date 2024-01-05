@@ -19,7 +19,7 @@ function showHeartRateOnScreen(hrm) {
   Bluetooth.println(bluetoothData.join(","));
 
   if (hrm.bpm > 80) {
-    Bangle.buzz();
+    //Bangle.buzz();
   }
 }
 
